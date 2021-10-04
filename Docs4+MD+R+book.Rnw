@@ -1,0 +1,32 @@
+\documentclass{article}
+%\documentclass{book}
+
+\usepackage{hyperref}
+
+\usepackage{textcomp, booktabs, array, longtable, ltarray}
+
+
+<<calltopandoc, echo=F,include=F, engine='sh'>>=
+%# pandoc Docs4+MD+R.md --top-level-division=chapter -f markdown -t latex -o Docs4+MS+R.tex
+pandoc Docs4+MD+R.md --top-level-division=section -f markdown -t latex -o Docs4+MS+R.tex
+@
+
+\begin{document}
+
+With chapters
+Rscript -e "library(knitr); knit('./Docs4+MD+R.md')"  to then include the .txt !
+
+Rscript -e "library(knitr); knit('./Docs4+MD+R+book.Rnw')"
+
+make sure we have framed.sty installed  (texlive-latex-extra)
+AND In Rnw:
+
+<<RTest>>=
+2+2
+@
+
+
+
+\include{Docs4+MS+R}
+
+\end{document}

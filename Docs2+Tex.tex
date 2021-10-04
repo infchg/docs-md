@@ -1,0 +1,51 @@
+\documentclass{article}
+%\usepackage{biblatex}
+%\addbibresource{references.bib}
+\title{ Docs2 Tex }
+\author{J C}
+
+\begin{filecontents*}{figure/Docs2-img.eps}
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 19 19 221 221
+%%CreationDate: Mon Sep 29 1997
+%%Creator: programmed by hand (JK)
+%%EndComments
+gsave
+newpath
+  20 20 moveto
+  20 220 lineto
+  220 220 lineto
+  220 20 lineto
+closepath
+2 setlinewidth
+gsave
+  .4 setgray fill
+grestore
+stroke
+grestore
+\end{filecontents*}
+%
+
+\begin{document}
+\maketitle
+\section{Introduction}
+Here is some text with a reference to a bibliography citation.\cite{R-rmarkdown}
+
+to render with any of these:
+
+pandoc -s -S -M author:InfChg  -M date:"2021 Aug"   --bibliography=Docs1+MD+Bib.bib  --csl=ieee.csl  -o k.pdf   Docs2+Tex.tex  
+
+pandoc -s  -M author:InfChg  -M date:"2021 Aug"   --bibliography=Docs1+MD+Bib.bib --csl=ieee.csl  -o k.pdf   Docs2+Tex.tex  --citeproc  -M link-citations 
+
+pdflatex Docs2+Tex.tex  \# would miss links but will run all latex
+
+\section{Image generation}
+
+ an example creating EPS file is in the preamble,  pdflatex will extract the file )
+ 
+
+
+
+\section{References}
+%\printbibliography
+\end{document}

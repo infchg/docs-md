@@ -1,0 +1,28 @@
+<h1 id="docs8">Docs8</h1>
+<p>generate using:</p>
+<pre><code>    pandoc -N -F pandoc-crossref  --citeproc  -M link-citations  -M highlightjs=1 -t html5  Docs8-eq-lst.md
+    pandoc -F pandoc-crossref  -t html5  Docs8-eq-lst.md</code></pre>
+<p><span class="math display"><em>S</em>(<em>x</em>) = ∫<sub><em>x</em><sub>1</sub></sub><sup><em>x</em><sub>2</sub></sup><em>a</em><em>x</em> + <em>b</em> d<em>x</em></span> {#eq:eqn2}</p>
+<p>refs are <span class="citation" data-cites="eq:eqn2">@eq:eqn2</span> and <span class="citation" data-cites="lst:cap lst:bas">[@lst:cap; @lst:bas]</span> ,</p>
+<div class="sourceCode" id="lst:cap" data-caption="Listing caption"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="lst:cap-1"><a href="#lst:cap-1" aria-hidden="true" tabindex="-1"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
+<span id="lst:cap-2"><a href="#lst:cap-2" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="fu">putStrLn</span> <span class="st">&quot;Hello World!&quot;</span></span></code></pre></div>
+<p>and</p>
+<div class="sourceCode" id="lst:bas" data-caption="bash code"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="lst:bas-1"><a href="#lst:bas-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> ls</span></code></pre></div>
+<h4 id="othernote1">Othernote1</h4>
+<h5 id="nn">Othernote2</h5>
+<h6 id="othernote3">Othernote3</h6>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<h2 id="also-without-cross">also without cross</h2>
+<p>without cross could still use links or <a href="#lst:cap">#lst:cap</a> or <a href="#nn">#nn</a> to IDs even in html <a href=#lst:cap>aa</a> <a href=#nn>aa</a> <a href=#Othernote1>aa</a> or redefine <a href="#lst:cap">lis_cap</a> and <a href="#lst:cap">lis:cap</a></p>
+<pre><code>pandoc  -t html Docs8-eq-lst.md &gt;tes.html</code></pre>
+<style>
+li { color: darkblue }
+strong { color: Orange }
+h1{ color: DarkOrange }
+del { color: Green  }
+.sourceCode { color: Green  }
+h2 { color: Green  }
+em { color: blue } //ok
+</style>

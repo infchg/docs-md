@@ -1,0 +1,110 @@
+\hypertarget{generate-with}{%
+\section{generate with}\label{generate-with}}
+
+run
+
+\begin{verbatim}
+R CMD Sweave --pdf Docs4+MD+R+book.Rnw 
+\end{verbatim}
+
+or
+
+\begin{verbatim}
+ R -e rmarkdown::render"('Docs4+MS+R.md',output_file='test.html')"
+ 
+\end{verbatim}
+
+or Rscript Docs4+MS+R.md Rscript -e ``library(knitr);
+knit(`./Docs4+MS+R+book.Rnw')'' \#pdflatex Docs4+MS+R.tex
+
+\hypertarget{doc4-r-demo}{%
+\section{doc4 R demo}\label{doc4-r-demo}}
+
+you might need in linux R to clean the environment:
+
+\begin{verbatim}
+sudo apt-get  -u dist-upgrade
+\end{verbatim}
+
+\begin{verbatim}
+4*222
+\end{verbatim}
+
+another
+
+\texttt{\{r\ test-a,\ eval=TRUE\}\ 1+1\ strsplit(\textquotesingle{}hello\ world\textquotesingle{},\ \textquotesingle{}\ \textquotesingle{})}
+
+In R also installing the dependencies `stringi', `stringr' `digest',
+`rlang' rmd vs.~rnw sudo apt-get install software-properties-common apt
+install --no-install-recommends software-properties-common dirmngr
+
+\begin{verbatim}
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+https://www.tuxamito.com/wiki/index.php/Installing_newer_GCC_versions_in_Ubuntu
+sudo apt-get install  gcc-8 g++-8
+sudo update-alternatives --remove-all gcc
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 90 --slave /usr/bin/g++ g++ /usr/bin/g++-8
+sudo ulimit -s 16384     && sudo R -e 'install.packages("stringi");'
+conda install -c conda-forge r-bookdown
+\end{verbatim}
+
+\begin{verbatim}
+install.packages("stringi")
+install.packages("bookdown")
+
+install.packages("knitr")
+
+knitr::write_bib(x = c("knitr") , file = "test.bib")
+\end{verbatim}
+
+remember some R versioning issues on R 3.2 cannot
+install.packages(``rmarkdown'', dep = TRUE) rmarkdown::pandoc\_version()
+nor knitr::write\_bib(x = c(``knitr'', ``rmarkdown'') , file =
+``test.bib'')
+
+with bash
+
+\texttt{\{bash,\ engine.opts=\textquotesingle{}-l\textquotesingle{}\}\ echo\ \$PATH}
+
+\hypertarget{vars}{%
+\section{Vars}\label{vars}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.20}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.20}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.36}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+--variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+--metadata
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+YAML metadata and --metadata-file
+\end{minipage} \\
+\midrule
+\endhead
+values can be\ldots{} & strings and bools & strings and bools & also
+YAML objects and lists \\
+strings are\ldots{} & inserted verbatim & escaped & interpreted as
+markdown \\
+accessible by filters: & no & yes & yes \\
+\bottomrule
+\end{longtable}
+
+Figures and tables with captions will be placed in \texttt{figure} and
+\texttt{table} environments, respectively.
+
+\texttt{\{r\ nice-fig,\ fig.cap=\textquotesingle{}Here\ is\ a\ nice\ figure!\textquotesingle{},\ out.width=\textquotesingle{}80\%\textquotesingle{},\ fig.asp=.75,\ fig.align=\textquotesingle{}center\textquotesingle{}\}\ par(mar\ =\ c(4,\ 4,\ .1,\ .1))\ plot(pressure,\ type\ =\ \textquotesingle{}b\textquotesingle{},\ pch\ =\ 19)}
+
+refs see Figure @ref(fig:nice-fig).
+
+can write citations, too. For example, we are using the
+\textbf{bookdown} package {[}@R-bookdown{]} using R Markdown and
+\textbf{knitr}
+
+\hypertarget{brmp}{%
+\section{BRMP}\label{brmp}}
+
+https://itsm.zone/samples/BRM.pdf

@@ -1,0 +1,17 @@
+latex template example
+$for(author)$
+    $if(author.name)$
+        \author{$author.name$}
+        $if(author.affiliation)$
+            \affiliation{\institution{$author.affiliation$}}
+        $endif$
+        $if(author.email)$
+            \email{$author.email$}
+        $endif$
+    $else$
+        $author$
+    $endif$
+$endfor$
+
+based on [] https://opensource.com/article/18/9/pandoc-research-paper 
+

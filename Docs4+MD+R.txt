@@ -1,0 +1,187 @@
+
+# generate with
+
+
+This renders but des not run r codes:
+
+	 R -e rmarkdown::render"('Docs4+MD+R.md',output_file='test.html')"
+	 R -e rmarkdown::render"('Docs4+MD+R.md',output_file='test.pdf')"
+
+This runs r codes and show iages:
+
+	Rscript -e "library(knitr); knit('Docs4+MD+R.md')"
+	pandoc Docs4+MD+R.txt -t html5 -o test.pdf 
+
+others 
+
+	Rscript -e "library(knitr); knit('./Docs4+MD+R+book.Rnw')"
+	#pdflatex Docs4+MS+R.tex
+	
+run 
+
+ 	R CMD Sweave --pdf Docs4+MD+R+book.Rnw 
+	
+	
+# doc4 R demo
+
+you might need in linux R to clean the environment:
+
+	sudo apt-get  -u dist-upgrade
+
+
+```r
+4*222
+```
+
+```
+## [1] 888
+```
+another 
+
+
+```r
+my.dir <- getwd()
+list.files(my.dir, recursive= TRUE)
+```
+
+```
+##  [1] "Docs1+MD+Bib.bib"      "Docs1+MD+Bib.md"       "Docs2+Tex.aux"        
+##  [4] "Docs2+Tex.log"         "Docs2+Tex.pdf"         "Docs2+Tex.tex"        
+##  [7] "Docs3+MD+utf.md"       "Docs3+MD+utf.utf8.tex" "Docs4+MD+R+book.Rnw"  
+## [10] "Docs4+MD+R+book.tex"   "Docs4+MD+R.md"         "Docs4+MD+R.txt"       
+## [13] "Docs4+MS+R.tex"        "Docs5+Refs.md"         "Docs6+FigSec.md"      
+## [16] "Docs6+makefile"        "Docs6+meta.yml"        "Docs6+tplt.tex"       
+## [19] "figure/Docs2-img.eps"  "figure/nice-fig-1.png" "ieee.csl"             
+## [22] "k.pdf"                 "mycontext.tex"         "mytemplate.tex"       
+## [25] "test.pdf"
+```
+
+```r
+strsplit('hello world', ' ')
+```
+
+```
+## [[1]]
+## [1] "hello" "world"
+```
+
+In R also installing the dependencies ‘stringi’, ‘stringr’ ‘digest’, ‘rlang’ htmltools withr rmd vs. rnw
+	sudo apt-get install software-properties-common
+	apt install --no-install-recommends software-properties-common dirmngr
+
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	https://www.tuxamito.com/wiki/index.php/Installing_newer_GCC_versions_in_Ubuntu
+	sudo apt-get install libfontconfig1-dev gcc-8 g++-8
+	sudo update-alternatives --remove-all gcc
+	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 90 --slave /usr/bin/g++ g++ /usr/bin/g++-8
+	sudo ulimit -s 16384     && sudo R -e 'install.packages("stringi");'
+	conda install -c conda-forge r-bookdown
+
+
+
+remember some R versioning issues on R 3.2 cannot run, after R4 then install.packages("rmarkdown", dep = TRUE)
+rmarkdown::pandoc_version()  nor knitr::write_bib(x = c("knitr", "rmarkdown") , file = "test.bib")
+
+with bash
+
+
+```bash
+echo $PATH
+```
+
+```
+## /home/j/bin:/home/j/.local/bin:/usr/local/texlive/2020/bin/x86_64-linux:/bin:/sbin:/usr/bin:/usr/sbin:/home/j/bin:/home/j/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/j/Documents/go/bin:/usr/local/ayam/bin:/home/j/Jua/2prod/bin:/home/j/bin:/usr/java/jre1.8.0_271/bin:/usr/local/go/bin:/home/j/Documents/go/bin:/usr/local/ayam/bin
+```
+ 
+# Vars
+
+|                        | --variable        | --metadata        | YAML metadata and --metadata-file |
+|------------------------|-------------------|-------------------|-----------------------------------|
+| values can be…         | strings and bools | strings and bools | also YAML objects and lists       |
+| strings are…           | inserted verbatim | escaped           | interpreted as markdown           |
+| accessible by filters: | no                | yes               | yes                               |
+
+
+Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+
+
+```r
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+<img src="figure/nice-fig-1.png" title="Here is a nice figure!" alt="Here is a nice figure!" width="80%" style="display: block; margin: auto;" />
+
+refs  see Figure \@ref(fig:nice-fig).
+
+can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] using R Markdown and **knitr**
+
+
+# Others
+																						
+
+```
+## Error in library(ggplot2): there is no package called 'ggplot2'
+```
+
+```
+## Warning in download.file(url = "https://ndownloader.figshare.com/files/
+## 7010681", : URL 'https://ndownloader.figshare.com/files/7010681': status was
+## 'Couldn't resolve host name'
+```
+
+```
+## Error in download.file(url = "https://ndownloader.figshare.com/files/7010681", : cannot open URL 'https://ndownloader.figshare.com/files/7010681'
+```
+
+```
+## Warning in file(file, "rt"): cannot open file 'data': No such file or directory
+```
+
+```
+## Error in file(file, "rt"): cannot open the connection
+```
+
+```
+##      Mobile      Juneau     Phoenix Little Rock Los Angeles  Sacramento 
+##        67.0        54.7         7.0        48.5        14.0        17.2
+```
+
+```
+## Error in precip$DATE: $ operator is invalid for atomic vectors
+```
+
+```
+## Error in qplot(x = precip$DATE, y = precip$PRECIP): could not find function "qplot"
+```
+   
+and
+
+
+
+```r
+download.file(url = "https://octodex.github.com/images/bannekat.png",
+          destfile = "image.png",
+          mode = 'wb')
+```
+
+```
+## Warning in download.file(url = "https://octodex.github.com/images/
+## bannekat.png", : URL 'https://octodex.github.com/images/bannekat.png': status
+## was 'Couldn't resolve host name'
+```
+
+```
+## Error in download.file(url = "https://octodex.github.com/images/bannekat.png", : cannot open URL 'https://octodex.github.com/images/bannekat.png'
+```
+
+```r
+knitr::include_graphics(path = "figure/Docs2-img.eps") #image.png")
+```
+
+<img src="figure/Docs2-img.eps" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="40px" />
+
+---
+title: "Docs4 R Markdown Demos: Plot PDF ..."
+output: pdf_document
+---

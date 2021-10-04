@@ -1,0 +1,25 @@
+$$--  tpl jc 2021
+$if(titleblock)$
+$titleblock$
+
+$endif$
+$for(header-includes)$
+$header-includes$
+
+$endfor$
+$for(include-before)$
+$include-before$
+
+$endfor$
+------------ toc next
+$if(toc)$
+$table-of-contents$
+
+$endif$
+------- toc up
+$body$
+---end bod
+$for(include-after)$
+
+$include-after$
+$endfor$

@@ -1,0 +1,34 @@
+\documentclass{article}
+%\documentclass{book}
+
+\usepackage{hyperref}
+
+\usepackage{textcomp, booktabs, array, longtable, ltarray}
+
+
+
+\usepackage{Sweave}
+\begin{document}
+
+With chapters
+Rscript -e "library(knitr); knit('./Docs4+MD+R.md')"  to then include the .txt !
+
+Rscript -e "library(knitr); knit('./Docs4+MD+R+book.Rnw')"
+
+make sure we have framed.sty installed  (texlive-latex-extra)
+AND In Rnw:
+
+\begin{Schunk}
+\begin{Sinput}
+> 2+2
+\end{Sinput}
+\begin{Soutput}
+[1] 4
+\end{Soutput}
+\end{Schunk}
+
+
+
+\include{Docs4+MS+R}
+
+\end{document}
